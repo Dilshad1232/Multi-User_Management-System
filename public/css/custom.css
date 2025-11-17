@@ -1,0 +1,61 @@
+/* start admin dashboard css */
+body {
+    background: #0D1B2A;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    background: linear-gradient(to bottom,#0D1B2A,#1B263B);
+    min-height: 100vh;
+}
+.sidebar .nav-link { color: #fff; }
+.sidebar .nav-link.active, .sidebar .nav-link:hover {
+    background-color: #00BFFF33;
+    color: #00F0FF;
+    border-radius: 5px;
+}
+
+/* Cards */
+.card-custom {
+    background: #1B263B;
+    border: none;
+    color: #ccc;
+}
+
+/* Badges */
+.badge-status {
+    padding: 0.4em 0.6em;
+    border-radius: 0.3rem;
+    font-size: 0.85rem;
+}
+
+/* Buttons */
+.bg-cyan {
+    background-color: #00F0FF;
+    color: #0D1B2A;
+    font-weight: 600;
+}
+.bg-cyan:hover {
+    background-color: #00C7D7;
+    color: #fff;
+}
+
+/* Footer */
+footer { background: #16202F; color: #ccc; }
+
+/* Sidebar mobile */
+@media(max-width:991px){
+    .sidebar {
+        position: fixed;
+        left: -250px;
+        top: 0;
+        width: 250px;
+        z-index: 1050;
+        transition: left .3s;
+    }
+    .sidebar.show { left: 0; }
+}
+/*end admin dashboard css */
