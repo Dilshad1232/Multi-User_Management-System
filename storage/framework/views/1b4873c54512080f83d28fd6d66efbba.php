@@ -1,8 +1,6 @@
-@extends('layouts.main')
+<?php $__env->startSection('title', 'MUMS | User Registration'); ?>
 
-@section('title', 'MUMS | User Registration')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <style>
 body {
@@ -131,44 +129,80 @@ p {
         <h2>User Registration</h2>
         <p>Create your account and join MUMS Portal</p>
 
-        @if(session('success'))
+        <?php if(session('success')): ?>
         <div class="bg-success bg-opacity-25 text-success border border-success p-2 rounded mb-3 small">
-            {{ session('success') }}
-        </div>
-        @endif
+            <?php echo e(session('success')); ?>
 
-        <form action="{{ route('store') }}" method="POST" enctype="multipart/form-data" class="mt-3">
-            @csrf
+        </div>
+        <?php endif; ?>
+
+        <form action="<?php echo e(route('store')); ?>" method="POST" enctype="multipart/form-data" class="mt-3">
+            <?php echo csrf_field(); ?>
             <div class="row g-3">
 
                 <div class="col-md-4">
                     <label>Full Name</label>
-                    <input type="text" name="full_name" value="{{ old('full_name') }}" class="form-control-3d" required>
-                    @error('full_name') <span class="text-danger">{{ $message }}</span> @enderror
+                    <input type="text" name="full_name" value="<?php echo e(old('full_name')); ?>" class="form-control-3d" required>
+                    <?php $__errorArgs = ['full_name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> <span class="text-danger"><?php echo e($message); ?></span> <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 </div>
 
                 <div class="col-md-4">
                     <label>Father's Name</label>
-                    <input type="text" name="father_name" value="{{ old('father_name') }}" class="form-control-3d" required>
-                    @error('father_name') <span class="text-danger">{{ $message }}</span> @enderror
+                    <input type="text" name="father_name" value="<?php echo e(old('father_name')); ?>" class="form-control-3d" required>
+                    <?php $__errorArgs = ['father_name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> <span class="text-danger"><?php echo e($message); ?></span> <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 </div>
 
                 <div class="col-md-4">
                     <label>Email</label>
-                    <input type="email" name="email" value="{{ old('email') }}" class="form-control-3d" required>
-                    @error('email') <span class="text-danger">{{ $message }}</span> @enderror
+                    <input type="email" name="email" value="<?php echo e(old('email')); ?>" class="form-control-3d" required>
+                    <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> <span class="text-danger"><?php echo e($message); ?></span> <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 </div>
 
                 <div class="col-md-4">
                     <label>Mobile No.</label>
-                    <input type="text" name="mobile_no" value="{{ old('mobile_no') }}" class="form-control-3d" required>
-                    @error('mobile_no') <span class="text-danger">{{ $message }}</span> @enderror
+                    <input type="text" name="mobile_no" value="<?php echo e(old('mobile_no')); ?>" class="form-control-3d" required>
+                    <?php $__errorArgs = ['mobile_no'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> <span class="text-danger"><?php echo e($message); ?></span> <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 </div>
 
                 <div class="col-md-4">
                     <label>Password</label>
                     <input type="password" name="password" class="form-control-3d" required>
-                    @error('password') <span class="text-danger">{{ $message }}</span> @enderror
+                    <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> <span class="text-danger"><?php echo e($message); ?></span> <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 </div>
 
                 <div class="col-md-4">
@@ -178,26 +212,54 @@ p {
 
                 <div class="col-md-4">
                     <label>Address</label>
-                    <input type="text" name="address" value="{{ old('address') }}" class="form-control-3d">
-                    @error('address') <span class="text-danger">{{ $message }}</span> @enderror
+                    <input type="text" name="address" value="<?php echo e(old('address')); ?>" class="form-control-3d">
+                    <?php $__errorArgs = ['address'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> <span class="text-danger"><?php echo e($message); ?></span> <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 </div>
 
                 <div class="col-md-4">
                     <label>District</label>
-                    <input type="text" name="district" value="{{ old('district') }}" class="form-control-3d">
-                    @error('district') <span class="text-danger">{{ $message }}</span> @enderror
+                    <input type="text" name="district" value="<?php echo e(old('district')); ?>" class="form-control-3d">
+                    <?php $__errorArgs = ['district'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> <span class="text-danger"><?php echo e($message); ?></span> <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 </div>
 
                 <div class="col-md-4">
                     <label>Pin Code</label>
-                    <input type="text" name="pin_code" value="{{ old('pin_code') }}" class="form-control-3d">
-                    @error('pin_code') <span class="text-danger">{{ $message }}</span> @enderror
+                    <input type="text" name="pin_code" value="<?php echo e(old('pin_code')); ?>" class="form-control-3d">
+                    <?php $__errorArgs = ['pin_code'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> <span class="text-danger"><?php echo e($message); ?></span> <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 </div>
 
                 <div class="col-md-6">
                     <label>Profile Photo</label>
                     <input type="file" name="profile_photo" class="form-control-3d">
-                    @error('profile_photo') <span class="text-danger">{{ $message }}</span> @enderror
+                    <?php $__errorArgs = ['profile_photo'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> <span class="text-danger"><?php echo e($message); ?></span> <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 </div>
 
                 <div class="col-md-6 d-flex align-items-end justify-content-end">
@@ -209,7 +271,7 @@ p {
 
         <p class="text-small mt-3">
             Already have an account?
-            <a href="{{ route('login') }}" class="text-warning text-decoration-none fw-bold">Login</a>
+            <a href="<?php echo e(route('login')); ?>" class="text-warning text-decoration-none fw-bold">Login</a>
         </p>
     </div>
 </div>
@@ -241,4 +303,6 @@ for(let i=0;i<35;i++){
 }
 </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.main', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\laravel all\myapp\resources\views/auth/register.blade.php ENDPATH**/ ?>
